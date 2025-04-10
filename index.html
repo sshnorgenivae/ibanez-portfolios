@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ibanez Portfolio</title>
+  <link rel="stylesheet" href="main.css">
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <!-- Scroll Progress Bar -->
+  <div id="scrollProgress" style="position: fixed; top: 0; left: 0; width: 0; height: 4px; background: #c9ada7; z-index: 9999;"></div>
+
+  <header>
+    <div class="header-container">
+      <div class="logo">
+        <img src="images/logo.png" alt="Ibanez Logo" class="logo-img">
+      </div>
+      <nav>
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#portfolio">Portfolio</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <section id="home" class="hero">
+    <div class="hero-content">
+      <img src="images/vana.jpg" alt="Welcome Photo" class="hero-img">
+      <div class="hero-text">
+        <h1 id="typing"></h1>
+        <p>Welcome to my portfolio! I’m a creative and adaptable individual passionate about technology, gaming, and design. With a focus on computer science and a flair for innovation, I blend logic and creativity to craft unique solutions.</p>
+        <a href="#portfolio" class="btn">Explore Now</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="about">
+    <h2>About Me</h2>
+    <div class="about-content">
+      <img src="images/about-vana.jpg" alt="Photo of Ibanez" class="about-img">
+      <p>Hi, I’m a passionate computer science student with a love for gaming, programming, and creative problem-solving. As an ENTP, I thrive on innovation and adaptability, bringing energy and fresh perspectives to everything I do. Outside of coding, I’m exploring the mystical world of paganism and witchcraft, always striving to learn and grow. Let’s connect and create something amazing together!</p>
+    </div>
+  </section>  
+
+  <section id="portfolio">
+    <h2>Portfolio</h2>
+  
+    <div class="project">
+      <h3>Arman Hybrid Salon Website</h3>
+      <img src="images/arman.png" alt="Arman Hybrid Salon Website Screenshot" class="project-img">
+      <p>A hybrid salon site designed with style and usability in mind. Offers seamless user experience, responsive layout, and a modern aesthetic.</p>
+    </div>
+  
+    <div class="project">
+      <h3>Devil in Heels Profile</h3>
+      <img src="images/devil-in-heels.jpg" alt="Devil in Heels Profile Screenshot" class="project-img">
+      <p>Styled like a cinematic dossier, this project showcases a character background with engaging visuals and storytelling.</p>
+    </div>
+  
+    <div class="project">
+      <h3>Queen’s Gambit Chess Page</h3>
+      <img src="images/chess.jpg" alt="Queen’s Gambit Chess Page Screenshot" class="project-img">
+      <p>Inspired by Beth Harmon’s brilliance, this interactive chess-themed layout features responsive design and strategic UI/UX elements.</p>
+    </div>
+  </section>
+  
+
+  <section id="contact">
+    <h2>Contact</h2>
+    <div class="contact-info">
+      <p><strong>Phone:</strong> +123-456-7890</p>
+      <p><strong>Website:</strong> <a href="https://www.reallygreatsite.com" target="_blank">www.reallygreatsite.com</a></p>
+      <p><strong>Email:</strong> abcde@gmail.com</p>
+      <p><strong>Address:</strong> 123 Anywhere St., Any City, ST 12345</p>
+      <p>Let’s connect! Whether you want to collaborate, have questions, or just want to chat about programming, gaming, or anything creative, feel free to reach out. I’d love to hear from you!</p>
+    </div>
+  </section>
+
+  <a href="#" class="back-to-top" title="Back to top">↑ Back to Top</a>
+
+  <footer>
+    &copy; 2025 Ibanez. All rights reserved.
+  </footer>
+
+  <script src="script.js"></script>
+  <script>
+    // Scroll Progress Bar
+    window.onscroll = function () {
+      const progressBar = document.getElementById("scrollProgress");
+      const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const scrolled = (winScroll / height) * 100;
+      progressBar.style.width = scrolled + "%";
+    };
+
+    // Typing Text
+    const typingText = "Hi, Welcome!";
+    let i = 0;
+    const speed = 50;
+
+    function typeWriter() {
+      if (i < typingText.length) {
+        document.getElementById("typing").innerHTML += typingText.charAt(i);
+        i++;
+        setTimeout(typeWriter, speed);
+      }
+    }
+
+    window.onload = typeWriter;
+
+    // Intersection Observer for Animation Fade In
+    const animatedSections = document.querySelectorAll("section, .hero, .project");
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = 1;
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+
+    animatedSections.forEach(section => {
+      observer.observe(section);
+    });
+
+    // Back to Top Smooth Scroll
+    document.querySelector('.back-to-top').addEventListener('click', function (e) {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  </script>
+</body>
+</html>
