@@ -568,35 +568,3 @@ footer {
   background: #222;
   color: white;
 }
-
-/* Mobile Styles (default: mobile-first) */
-@media (min-width: 768px) {
-  .hero-content {
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    text-align: left;
-  }
-
-  .hero-img {
-    margin-right: 2rem;
-    margin-bottom: 0;
-  }
-
-  .about-content {
-    flex-direction: row;
-    text-align: left;
-  }
-
-  .about-img {
-    margin-right: 2rem;
-  }
-
-  nav {
-    gap: 2rem;
-  }
-
-  .back-to-top {
-    display: inline-block;
-  }
-}
