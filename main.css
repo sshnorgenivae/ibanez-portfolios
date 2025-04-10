@@ -32,6 +32,33 @@ header {
   margin-left: 10px;
 }
 
+/* Menu */
+.menu-icon {
+  width: 25px;
+  height: 2px;
+  background-color: #ffffff;
+  position: relative;
+}
+
+.menu-icon::before,
+.menu-icon::after {
+  content: '';
+  position: absolute;
+  width: 25px;
+  height: 2px;
+  background-color: #ffffff;
+  transition: transform 0.3s ease;
+}
+
+.menu-icon::before {
+  top: -8px;
+}
+
+.menu-icon::after {
+  bottom: -8px;
+}
+
+
 /* Navigation */
 nav {
   display: flex;
