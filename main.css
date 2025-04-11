@@ -12,7 +12,7 @@ body {
   background-color: #22223b;
   color: #ffffff;
   line-height: 1.6;
-  text-align: center;
+  text-align: left;
 }
 
 /* ------------------------ */
@@ -60,7 +60,8 @@ nav a {
 }
 
 nav a:hover {
-  color: #c9ada7;
+  color: #ffffff;
+  text-shadow: 0 0 8px #c9ada7, 0 0 12px #ffffff;
 }
 
 nav a::after {
@@ -86,6 +87,7 @@ nav a:hover::after {
   background-color: #22223b;
   animation: fadeInUp 0.8s ease forwards;
   opacity: 0;
+  text-align: center;
 }
 
 .hero-content {
@@ -101,13 +103,15 @@ nav a:hover::after {
   max-width: 100%;
   border-radius: 15px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-  animation: fadeInUp 1s ease forwards;
+  animation: zoomIn 1s ease forwards;
   opacity: 0;
 }
 
 .hero-text {
   max-width: 600px;
-  text-align: left;
+  text-align: center;
+  animation: fadeInUp 1s ease forwards;
+  animation-delay: 0.3s;
 }
 
 .hero h1 {
@@ -137,6 +141,7 @@ nav a:hover::after {
   font-weight: bold;
   border-radius: 5px;
   transition: background 0.3s ease, transform 0.3s ease;
+  animation: slideUp 1s ease forwards;
 }
 
 .btn:hover,
@@ -159,6 +164,7 @@ section {
   border-bottom: 1px solid #ffffff33;
   animation: fadeInUp 0.8s ease forwards;
   opacity: 0;
+  text-align: center;
 }
 
 section h2 {
@@ -181,6 +187,7 @@ section p {
 .about-content {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 20px;
   flex-wrap: wrap;
 }
@@ -190,19 +197,7 @@ section p {
   height: auto;
   border-radius: 12px;
   object-fit: cover;
-}
-
-/* ------------------------ */
-/* Project Image Styling    */
-/* ------------------------ */
-.project-img {
-  width: 300px;
-  max-width: 100%;
-  height: auto;
-  border-radius: 15px;
-  margin-bottom: 15px;
-  object-fit: cover;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  animation: zoomIn 1s ease forwards;
 }
 
 /* ------------------------ */
@@ -216,8 +211,15 @@ section p {
   border-radius: 5px;
   max-width: 800px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  animation: fadeInUp 0.8s ease forwards;
   opacity: 0;
+}
+
+.project:nth-child(odd) {
+  animation: fadeInLeft 1s ease forwards;
+}
+
+.project:nth-child(even) {
+  animation: fadeInRight 1s ease forwards;
 }
 
 .project:hover {
@@ -234,6 +236,17 @@ section p {
 
 .project p {
   color: #ffffff;
+}
+
+.project-img {
+  width: 300px;
+  max-width: 100%;
+  height: auto;
+  border-radius: 15px;
+  margin-bottom: 15px;
+  object-fit: cover;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  animation: zoomIn 1s ease forwards;
 }
 
 /* ------------------------ */
@@ -274,6 +287,50 @@ footer {
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes zoomIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(10px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
   }
 }
 
